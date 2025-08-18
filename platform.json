@@ -1,13 +1,13 @@
 {
-  "name": "atmelmegaavr",
-  "title": "Atmel megaAVR",
-  "description": "8-bit MCUs Built for Real-time Control with Core Independent Peripherals combining intelligent hardware peripherals along with the low-power capability of an AVR core, megaAVR microcontrollers (MCUs) broaden the effectiveness of your real-time control systems.",
-  "homepage": "https://www.microchip.com/design-centers/8-bit/avr-mcus/device-selection/atmega4809",
+  "name": "atmelmegaavr-ea",
+  "title": "Atmel megaAVR (AVR EA family)",
+  "description": "Microchip AVR EA is a family of microcontrollers (MCUs) with high-speed integrated analog, hardware-based Core Independent Peripherals (CIPs) and low-power performance for efficient real-time control, sensor node and secondary safety monitoring applications.",
+  "homepage": "https://www.microchip.com/en-us/products/microcontrollers/8-bit-mcus/avr-mcus/avr-ea",
   "license": "Apache-2.0",
   "keywords": [
     "dev-platform",
     "Microchip",
-    "megaAVR",
+    "megaAVR-EA",
     "Atmel",
     "8-bit"
   ],
@@ -16,57 +16,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/platformio/platform-atmelmegaavr.git"
+    "url": "https://github.com/TODO/platform-atmelmegaavr-ea.git"
   },
   "version": "1.9.0",
-  "frameworks": {
-    "arduino": {
-      "package": "framework-arduino-megaavr",
-      "script": "builder/frameworks/arduino.py"
-    }
-  },
   "packages": {
-    "toolchain-atmelavr": {
+    "toolchain-atmelavr-dxcore": {
       "type": "toolchain",
-      "owner": "platformio",
-      "version": "~1.70300.0",
-      "optionalVersions": ["~3.70300.0"]
-    },
-    "framework-arduino-megaavr": {
-      "type": "framework",
       "optional": true,
-      "owner": "platformio",
-      "version": "~1.8.8"
-    },
-    "framework-arduino-megaavr-megacorex": {
-      "type": "framework",
-      "optional": true,
-      "owner": "platformio",
-      "version": "~1.1.2"
-    },
-    "framework-arduino-megaavr-megatinycore": {
-      "type": "framework",
-      "optional": true,
-      "owner": "platformio",
-      "version": "~2.6.7"
-    },
-    "framework-arduino-megaavr-dxcore": {
-      "type": "framework",
-      "optional": true,
-      "version": "~1.5.6"
+      "version": "1.70300.0"
     },
     "tool-avrdude-megaavr": {
       "type": "uploader",
-      "optional": true,
       "owner": "platformio",
-      "version": "~1.60300.0",
-      "optionalVersions": ["~3.60300.0"]
-    },
-    "tool-avrdude": {
-      "type": "uploader",
-      "optional": true,
-      "owner": "platformio",
-      "version": "~1.70100.0"
+      "version": "~3.60300.0"
     }
   }
 }

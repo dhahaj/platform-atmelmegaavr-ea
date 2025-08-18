@@ -13,40 +13,28 @@
 # limitations under the License.
 
 from platformio.public import PlatformBase
+from platformio.util import get_systype
 
 
-class AtmelmegaavrPlatform(PlatformBase):
+class AtmelmegaavreaPlatform(PlatformBase):
 
     def configure_default_packages(self, variables, targets):
         if not variables.get("board"):
-            return super().configure_default_packages(
-                variables, targets)
+            return super().configure_default_packages(variables, targets)
 
-        build_core = variables.get(
-            "board_build.core", self.board_config(variables.get("board")).get(
-                "build.core", "arduino"))
+        sys_type = get_systype()
+        toolchain_package_systype = "windows_amd64"
+        if "linux" in sys_type:
+            toolchain_package_systype = "linux_x86_64"
+        elif "darwin" in sys_type:
+            toolchain_package_systype = "darwin_x86_64"
 
-        if "arduino" in variables.get("pioframework", []) and build_core != "arduino":
-            framework_package = "framework-arduino-megaavr-%s" % build_core.lower()
-            self.frameworks["arduino"]["package"] = framework_package
-            self.packages[framework_package]["optional"] = False
-            self.packages["framework-arduino-megaavr"]["optional"] = True
+        toolchain_version = self.packages["toolchain-atmelavr-dxcore"][
+            "version"
+        ]
+        self.packages["toolchain-atmelavr-dxcore"]["optional"] = False
+        self.packages["toolchain-atmelavr-dxcore"][
+            "version"
+        ] = f"https://github.com/valeros/platform-atmelmegaavr-ea/releases/download/v1.9.0/toolchain-atmelavr-dxcore-{toolchain_package_systype}-{toolchain_version}.tar.gz"
 
-            if build_core in ("megatinycore", "dxcore"):
-                self.packages["toolchain-atmelavr"]["version"] = "~3.70300.0"
-
-        if build_core in ("MegaCoreX", "megatinycore", "dxcore"):
-            # MegaCoreX and megatinycore require AVRDUDE v7.1 currently available
-            # only in atmelavr platform
-            self.packages.pop("tool-avrdude-megaavr", None)
-        else:
-            self.packages.pop("tool-avrdude", None)
-
-        if any(t in targets for t in ("fuses", "bootloader")):
-            if build_core in ("MegaCoreX", "megatinycore", "dxcore"):
-                self.packages["tool-avrdude"]["optional"] = False
-            else:
-                self.packages["tool-avrdude-megaavr"]["optional"] = False
-
-        return super().configure_default_packages(
-            variables, targets)
+        return super().configure_default_packages(variables, targets)
