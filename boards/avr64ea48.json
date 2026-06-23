@@ -2,19 +2,16 @@
   "build": {
     "f_cpu": "20000000L",
     "mcu": "avr64ea48",
-    "core": "MegaCoreX"
+    "variant": "48pin-standard"
   },
   "hardware": {
     "oscillator": "internal"
   },
-  "frameworks": [],
-  "name": "Microchip AVR64EA48",
+  "name": "AVR64EA48",
   "upload": {
     "maximum_ram_size": 6144,
     "maximum_size": 65536,
     "protocol": "serialupdi",
-    "require_upload_port": true,
-    "speed": 230400
   },
   "url": "https://www.microchip.com/en-us/product/AVR64EA48",
   "vendor": "Microchip"
