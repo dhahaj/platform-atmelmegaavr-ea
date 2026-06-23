@@ -27,9 +27,8 @@
     },
     "tool-avrdude-megaavr": {
       "type": "uploader",
-      "optional": true,
       "owner": "platformio",
-      "version": "~1.80100.0"
+      "version": "~3.60300.0"
     }
   }
 }
