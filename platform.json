@@ -29,6 +29,12 @@
       "type": "uploader",
       "owner": "platformio",
       "version": "~3.60300.0"
+    },
+    "tool-avrdude": {
+      "type": "uploader",
+      "optional": true,
+      "owner": "platformio",
+      "version": "~1.80100.0"
     }
   }
 }
