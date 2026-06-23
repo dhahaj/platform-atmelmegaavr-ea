@@ -11,7 +11,7 @@ Microchip AVR EA is a family of microcontrollers (MCUs) with high-speed integrat
 
 ```ini
 [env:development]
-platform = https://github.com/TODO/platform-atmelmegaavr-ea.git
+platform = https://github.com/dhahaj/platform-atmelmegaavr-ea.git
 board = ...
 ...
 ```
