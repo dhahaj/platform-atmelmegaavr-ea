@@ -11,7 +11,7 @@
   "upload": {
     "maximum_ram_size": 6144,
     "maximum_size": 65536,
-    "protocol": "serialupdi",
+    "protocol": "serialupdi"
   },
   "url": "https://www.microchip.com/en-us/product/AVR64EA48",
   "vendor": "Microchip"
